@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core'
-import { TarefaService } from '../shared'
+import { Tarefa, TarefaService } from '../shared'
 
 @Component({
   selector: 'app-listar-tarefa',
@@ -7,7 +7,10 @@ import { TarefaService } from '../shared'
   styleUrls: ['./listar-tarefa.component.css'],
 })
 export class ListarTarefaComponent implements OnInit {
+  tarefas: Tarefa[]
   constructor(public tarefaService: TarefaService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.tarefas = this.tarefaService.listarTodos()
+  }
 }
