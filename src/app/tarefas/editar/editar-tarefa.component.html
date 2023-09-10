@@ -1,7 +1,7 @@
-<h1>Cadastrar tarefa</h1>
+<h1>Editar tarefa</h1>
 
 <div class="well">
-  <form [formGroup]="myForm" (ngSubmit)="cadastrar()">
+  <form [formGroup]="myForm" (ngSubmit)="atualizar()">
     <div class="form-group">
       <label for="nome">Tarefa:</label>
       <input
@@ -12,6 +12,7 @@
         minlength="5"
         required
         formControlName="nome"
+        [(ngModel)]="tarefa.nome"
       />
       <div
         class="alert alert-danger"
@@ -30,7 +31,7 @@
       <input
         type="submit"
         class="btn btn-success"
-        value="Cadastrar"
+        value="Atualizar"
         [disabled]="!this.myForm.valid"
       />
       <a class="btn btn-default" (click)="voltar()">
